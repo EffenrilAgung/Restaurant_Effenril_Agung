@@ -28,6 +28,65 @@ buttonCloseListMobile.addEventListener('click', () => {
 	}, 200);
 });
 
+// navigate name Desktop
+const navigateDesktop = document.querySelector('#navigateDesktop');
+const selectTagA = navigateDesktop.querySelectorAll('a');
+
+const dataUserName = localStorage.getItem('name');
+const dataUserEmail = localStorage.getItem('username');
+
+console.log(dataUserEmail);
+if (dataUserName || dataUserEmail) {
+	selectTagA.forEach((element) => {
+		element.classList.add('hidden');
+	});
+	const createElmTagA = document.createElement('a');
+	createElmTagA.href = '#';
+	if (!dataUserEmail) {
+		createElmTagA.textContent = `${dataUserName}`;
+	}
+	if (!dataUserName) {
+		createElmTagA.textContent = `${dataUserEmail}`;
+	}
+	createElmTagA.classList.add(
+		'text-white',
+		'font-semibold',
+		'font-roboto',
+		'uppercase'
+	);
+
+	navigateDesktop.appendChild(createElmTagA);
+}
+
+// navigate Mobile
+
+const navigateMobile = document.querySelector('#navigateMobile');
+const selectTagAMobile = navigateMobile.querySelectorAll('a');
+
+if (dataUserName || dataUserEmail) {
+	selectTagAMobile.forEach((element) => {
+		element.classList.add('hidden');
+	});
+	const createElmTagA = document.createElement('a');
+	createElmTagA.href = '#';
+	if (!dataUserEmail) {
+		createElmTagA.textContent = `${dataUserName}`;
+	}
+	if (!dataUserName) {
+		createElmTagA.textContent = `${dataUserEmail}`;
+	}
+	createElmTagA.classList.add(
+		'text-white',
+		'text-xl',
+		'font-semibold',
+		'font-roboto',
+		'uppercase',
+		'mt-5'
+	);
+
+	navigateMobile.appendChild(createElmTagA);
+}
+
 const breakfast = document.querySelector('.breakfast');
 const launch = document.querySelector('.launch');
 const coffee = document.querySelector('.coffee');
@@ -110,7 +169,7 @@ coffee.addEventListener('click', () => {
 
 // menu breakfast & launch
 function apiMenu(menuName, definisiName, cardName) {
-	fetch('http://127.0.0.1:5500/katalog/assets/db/menu.json')
+	fetch('http://127.0.0.1:5500//assets/db/menu.json')
 		.then((response) => response.json())
 		.then((res) => {
 			res.Menu[0][menuName].forEach((definisiName) => {
@@ -153,7 +212,7 @@ apiMenu('breakfast', breakfast, cardBreakfast);
 apiMenu('launch', launch, cardLaunch);
 
 // menu coffee
-fetch('http://127.0.0.1:5500/katalog/assets/db/menu.json')
+fetch('http://127.0.0.1:5500/assets/db/menu.json')
 	.then((response) => response.json())
 	.then((res) => {
 		res.Menu[0].coffee.forEach((coffee) => {

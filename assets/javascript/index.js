@@ -18,7 +18,7 @@ function iconPasswordVisibleAndHidden() {
 	}
 }
 
-let data = await fetch('http://127.0.0.1:5500/katalog/assets/db/users.json')
+let data = await fetch('http://127.0.0.1:5500/assets/db/users.json')
 	.then((response) => response.json())
 	.then((res) => {
 		for (const data of res.users) {
