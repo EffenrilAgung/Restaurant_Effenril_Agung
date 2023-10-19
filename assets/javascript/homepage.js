@@ -241,7 +241,7 @@ const peopleSelect = document.querySelector('#peopleSelect');
 for (let i = 2; i < 6; i++) {
 	const createElmOption = document.createElement('option');
 	createElmOption.setAttribute('value', i);
-	const createElemText = document.createTextNode(`${i} Option`);
+	const createElemText = document.createTextNode(`${i} People`);
 	createElmOption.appendChild(createElemText);
 
 	createElmOption.classList.add('font-medium', 'text-base');
